@@ -94,7 +94,7 @@ module.exports = function(configuration){
       return expiry;
     }
   }
-  var pay = function(args){
+  var pay = function(args, extended){
     var pan = cleanse(args.card,true);
     //Moneris takes expiry date format YY/MM, however most websites use the MM/YY format, you can specificy this in a verbose manner in the configuration by setting configuration.expiryFormat = 'MM/YY'; or the default 'YY/MM';
     var expdate = normalizeExpiry(configuration.expiryFormat,cleanse(args.expiry,true));
@@ -127,7 +127,7 @@ module.exports = function(configuration){
           msg: 'INVALID_INPUTS'
         }
       }
-      return send(purchase)
+      return send(purchase, extended)
       .then(function(result){
           var fe = firstElement; //shorthand
           var code = fe(result.ResponseCode);
