@@ -120,6 +120,12 @@ module.exports = function(configuration){
         dynamic_descriptor,
         status_check: false
     };
+    if(args.cvd_info) {
+      purchase.cvd_info = args.cvd_info;
+    }
+    if(args.avs_info) {
+      purchase.avs_info = args.avs_info;
+    }    
     return $q.fcall(function(){
       if(!amount || !pan || !expdate){
         throw {
