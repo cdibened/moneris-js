@@ -299,13 +299,13 @@ module.exports = function(configuration) {
     }
     amount = amount ? numeral(amount).format("0.00") : false;
     var suffix = new Date().getTime() + "-" + Math.ceil(Math.random() * 10000);
-    var order_id = args.order_id || cleanse(configuration.app_name, true) + "-Complete-" + suffix;
+    var order_id = args.order_id || cleanse(configuration.app_name, true) + "-Completion-" + suffix;
     var cust_id = args.cust_id || "customer-" + suffix;
-    var dynamic_descriptor = args.description || args.dynamic_descriptor || "complete";
+    var dynamic_descriptor = args.description || args.dynamic_descriptor || "completion";
     var extended = args.extended || {};
     var txn_number = args.txn_number || null;
     var complete = {
-      type: "complete",
+      type: "completion",
       txn_number,
       order_id,
       comp_amount: amount,
