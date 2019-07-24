@@ -294,10 +294,7 @@ module.exports = function(configuration) {
   var complete = function(args) {
     var amount = args.amount;
     //--Moneris is super picky about formating..
-    if (args.forceDecline && configuration.test) {
-      amount = 0.05;
-    }
-    amount = amount ? numeral(amount).format("0.00") : false;
+    amount = numeral(amount).format("0.00");
     var suffix = new Date().getTime() + "-" + Math.ceil(Math.random() * 10000);
     var order_id = args.order_id || cleanse(configuration.app_name, true) + "-Completion-" + suffix;
     var cust_id = args.cust_id || "customer-" + suffix;
