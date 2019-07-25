@@ -206,11 +206,9 @@ module.exports = function(configuration) {
           if (approved) {
             return status;
           } else {
-            throw {
-              code: status.code,
-              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED",
-              raw: result
-            };
+            throw Object.assign({}, status, {
+              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED"
+            });
           }
         });
       });
@@ -283,11 +281,9 @@ module.exports = function(configuration) {
           if (approved) {
             return status;
           } else {
-            throw {
-              code: status.code,
-              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED",
-              raw: result
-            };
+            throw Object.assign({}, status, {
+              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED"
+            });
           }
         });
       });
@@ -345,11 +341,9 @@ module.exports = function(configuration) {
           if (approved) {
             return status;
           } else {
-            throw {
-              code: status.code,
-              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED",
-              raw: result
-            };
+            throw Object.assign({}, status, {
+              msg: (status.timeout ? "TIMEOUT" : status.msg) || "DECLINED"
+            });
           }
         });
       });
